@@ -9,3 +9,13 @@
         @content
     }
 }
+
+@mixin crearBotonArt ($colorLetra,$colorFondo,$tamanio,$tamanioLetra){
+    background-color: $colorFondo;
+    color:$colorLetra;
+    padding: $tamanio;
+    font-size: $tamanioLetra;
+    text-decoration: none;
+    border:none;
+    align-self: center;
+}

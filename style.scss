@@ -49,6 +49,9 @@
         }
         
     }
+    li:hover{
+        background-color: green;
+    }
     }
    
 }
@@ -56,6 +59,7 @@
 .nos{
     margin-top: 1rem;
     display: grid;
+    
     @include escritorio{
         grid-template-columns: 1fr 1fr ;
         
@@ -80,26 +84,42 @@
     }
     
 }
-
+body{
+    background-color: var(--gris);
+}
 .articulos{
     display: grid;
-    grid-template-columns: 1fr;
-    @include tablet{
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    
+    @include escritorio{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(3 auto);
     }
     grid-template-rows: repeat(4 auto);
     .titulo2{
-        grid-column: 1/2;
+        grid-column: 1/3;
+        
         @include tablet{
             grid-column: 1/3;
+        }
+        @include escritorio{
+            grid-column: 1/4;
         }
         text-align: center;
         justify-self: center;
     }
     .destacados{
-        grid-column: 1/2;
+        grid-column: 1/3;
         justify-self: center;
+        background-color: white;
+        border: 1px solid black;
         @include tablet{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column:1/3 ;
+        }
+        @include escritorio{
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-column:1/3 ;
@@ -110,16 +130,95 @@
                 grid-column: 1/2;
                 grid-row: 1/2;
             }
+            @include escritorio{
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+            
         }
         .dst{
             display: grid;
             gap: 1rem;
+            padding-left:1rem ;
             @include tablet{
+                grid-column: 2/3;
+            }
+            @include escritorio{
                 grid-column: 2/3;
             }
         }
     }
+    .btn{
+        @include crearBotonArt(var(--claro),var(--primario),var(--padding),var(--tamanio));
+        transition: 2s;
+        &:hover{
+            @include crearBotonArt(var(--primario),var(--claro),var(--padding),var(--tamanio));
+        }
+    }
+    .art{
+        display: grid;
+        gap: 1rem;
+        background-color: white;
+        border: 1px solid black;
+        img{
+            max-width: 100%;
+        }
+        h2{
+            padding-left: 1rem;
+        }
+        p{
+            padding-left: 1rem;
+        }
+    }
+    .precio{
+        strong{
+            color: black;
+        }
+        color: var(--primario);
+    }
 }
+
+footer{
+    background-color: var(--primario);
+    margin-top: 1rem;
+    
+    .pr{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        color: white;
+        @include escritorio{
+            grid-template-columns: 30% 20% 2fr;
+        }
+        .nvg{
+            ul{
+                list-style: none;
+            }
+        }
+        .cv{
+            display: grid;
+            gap: 1rem;
+            .art2{
+                display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-row: 1fr;
+            
+                h2{
+                    grid-row: 1/2;
+                }
+                img{
+                    max-width: 30%;
+                    grid-column: 1/2;
+                }
+                p{
+                    grid-column: 2/3;
+                }
+            }
+            
+        }
+    }
+}
+
 
 
 
